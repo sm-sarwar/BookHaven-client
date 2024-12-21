@@ -8,6 +8,10 @@ const Navbar = () => {
         navigate('/login'); 
     };
 
+    const handleRegisterRedirect = ()=>{
+        navigate('/register');
+    }
+
     const links = (
         <>
             <li><NavLink className='hover:text-teal-500 font-semibold' to="/">Home</NavLink></li>
@@ -58,7 +62,9 @@ const Navbar = () => {
                         className='md:px-5 md:py-2 py-1 px-3 bg-teal-500 text-white font-bold rounded-md'>
                         Login
                     </button>
-                    <button className='md:px-5 md:py-2 py-1 px-3 bg-[#4DA1A9] text-white font-bold rounded-md'>Register</button>
+                    <button 
+                    onClick={handleRegisterRedirect}
+                    className='md:px-5 md:py-2 py-1 px-3 bg-[#4DA1A9] text-white font-bold rounded-md'>Register</button>
                 </div>
             </div>
         </div>
