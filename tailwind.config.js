@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      mona: ['Mona Sans', 'sans'],  
+      anton: ['Anton'],  
+    },
   },
   plugins: [
     require('daisyui'),
