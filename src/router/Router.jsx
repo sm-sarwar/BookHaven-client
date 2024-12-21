@@ -3,6 +3,7 @@ import {
   } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Home/Home";
+import Login from "../page/Login";
 
 
 
@@ -15,6 +16,10 @@ import Home from "../Home/Home";
         {
           path:"/",
           element:<Home></Home>
+        },
+        {
+          path:"/login",
+          element:<Login></Login>
         }
       ]
 

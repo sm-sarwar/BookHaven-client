@@ -4,7 +4,7 @@ import logo from '../assets/logo.webp'
 
 const Footer = () => {
   return (
-    <footer className="footer py-14 px-20 bg-base-200 text-base-content ">
+    <footer className="footer py-14 px-20 bg-base-300 text-base-content ">
       <div>
         <p>
           <Link to="/" className=" text-xl">
