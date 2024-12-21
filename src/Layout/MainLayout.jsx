@@ -6,7 +6,7 @@ import Footer from '../Home/Footer';
 const MainLayout = () => {
     return (
         <div>
-            <nav className='font-mona max-w-screen-xl mx-auto'>
+            <nav className='font-mona bg-base-200 py-2 top-0 sticky z-50'>
                 <Navbar></Navbar>
             </nav>
             <main className='font-mona max-w-screen-xl mx-auto'>
