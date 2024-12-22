@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const BookCategory = () => {
   // Move useState and useEffect inside the component
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:5000/booksCategory")
@@ -24,12 +26,13 @@ const BookCategory = () => {
               className="h-32 w-full object-cover rounded-md mb-4"
             />
             <h3 className="text-lg font-semibold mb-2">{category.category}</h3>
-            <Link 
-              to={`/category/${category.category}`}
-              className="text-teal-600 hover:underline"
+            <button 
+              // to={`/category/${category.category}`}
+              onClick={() => navigate(`/categoryBooks/${category.category}`)}
+              className="text-teal-600 btn"
             >
               View Books
-            </Link>
+            </button>
           </div>
         ))}
       </div>

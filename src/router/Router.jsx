@@ -37,7 +37,8 @@ import AddBooks from "../page/AddBooks";
         },
         {
           path:"/categoryBooks/:category",
-          element:<BooksByCategory></BooksByCategory>
+          element:<BooksByCategory></BooksByCategory>,
+          loader:()=> fetch('http://localhost:5000/books')
         },
         {
           path:'/addBook',

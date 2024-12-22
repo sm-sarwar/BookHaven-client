@@ -36,7 +36,7 @@ const AddBooks = () => {
         console.log(data);
         Swal.fire({
             title: "Good job!",
-            text: "Visa added successfully!",
+            text: "Book added successfully!",
             icon: "success"
           });
           navigate('/');
