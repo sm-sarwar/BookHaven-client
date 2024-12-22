@@ -7,13 +7,14 @@ import Login from "../page/Login";
 import Register from "../page/Register";
 import AllBooks from "../page/AllBooks";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../page/Error";
 
 
 
   const router = createBrowserRouter([
     {
       path: "/",
-      errorElement: <h2>Route not found</h2>,
+      errorElement: <Error></Error>,
       element:<MainLayout></MainLayout>,
       children:[
         {
