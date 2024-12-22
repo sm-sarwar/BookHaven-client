@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import Error from "../page/Error";
 import BooksByCategory from "../components/BooksByCategory";
 import AddBooks from "../page/AddBooks";
+import BookDetails from "../Home/BookDetails";
 
 
 
@@ -43,6 +44,11 @@ import AddBooks from "../page/AddBooks";
         {
           path:'/addBook',
           element:<PrivateRoute><AddBooks></AddBooks></PrivateRoute>
+        },
+        {
+          path: "/books/:id",
+          element : <BookDetails></BookDetails>,
+          loader:({params})=> fetch(`http://localhost:5000/books/${params.id}`)
         }
       ]
 

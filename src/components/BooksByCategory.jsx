@@ -1,17 +1,17 @@
 import React from "react";
-import { useLoaderData, useParams } from "react-router-dom";
-import Rating from 'react-rating-stars-component';
+import {  useLoaderData, useNavigate, useParams } from "react-router-dom";
+import Rating from "react-rating-stars-component";
 
 const BooksByCategory = () => {
   const { category } = useParams();
-  const loadedBooks = useLoaderData(); 
+  const navigate = useNavigate();
+  const loadedBooks = useLoaderData();
   const booksInCategory = loadedBooks.filter(
     (book) => book.category === category
-  ); 
+  );
 
   return (
     <div className="my-20 bg-base-200 md:p-10 rounded-lg">
-      
       <h2 className="text-3xl font-bold text-center mb-8">
         Books in <span className="text-teal-600">{category}</span>
       </h2>
@@ -49,7 +49,7 @@ const BooksByCategory = () => {
               </div>
               <button
                 className="bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-cyan-700"
-                onClick={() => alert(`Viewing details for ${book.name}`)}
+                onClick={() => navigate(`/books/${book._id}`)}
               >
                 Details
               </button>
@@ -62,4 +62,3 @@ const BooksByCategory = () => {
 };
 
 export default BooksByCategory;
-
