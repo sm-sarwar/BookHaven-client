@@ -17,7 +17,8 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
-    const user = { name, email };
+    const user = { name, email,password,photo };
+    console.log(user)
 
     if (password.length < 6) {
       setError("Password must be at least 6 characters long");
@@ -27,9 +28,7 @@ const Register = () => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
 
     if (!regex.test(password)) {
-      setError(
-        " Please write at least one uppercase and at least one lowercase"
-      );
+      console.log('please enter a valid password')
       return;
     }
   };

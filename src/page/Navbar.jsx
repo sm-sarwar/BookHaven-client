@@ -1,6 +1,7 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.webp';
 
+
 const Navbar = () => {
     const navigate = useNavigate(); 
 
@@ -64,7 +65,8 @@ const Navbar = () => {
                     </button>
                     <button 
                     onClick={handleRegisterRedirect}
-                    className='md:px-5 md:py-2 py-1 px-3 bg-[#4DA1A9] text-white font-bold rounded-md'>Register</button>
+                    className='md:px-5 md:py-2 py-1 px-3 bg-[#4DA1A9] text-white font-bold rounded-md'>Register
+                    </button>
                 </div>
             </div>
         </div>
