@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Lottie from "lottie-react";
 
 import registrationAnimation from "../assets/registration.json";
+import useAuth from "../Hooks/UseAuth";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const { createUser, updateUserProfile} = useAuth();
   const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleToRegister = (e) => {
@@ -17,8 +21,9 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
-    const user = { name, email,password,photo };
-    console.log(user)
+
+    setError("");
+    setSuccess(false);
 
     if (password.length < 6) {
       setError("Password must be at least 6 characters long");
@@ -28,16 +33,40 @@ const Register = () => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
 
     if (!regex.test(password)) {
-      console.log('please enter a valid password')
+      setError(
+        " Please write at least one uppercase and at least one lowercase"
+      );
       return;
     }
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
+          navigate("/");
+        });
+        // .catch(error => console.log(error))
+        Swal.fire({
+          title: "Good job!",
+          text: "Registration successful",
+          icon: "success",
+        });
+        setSuccess(true);
+        form.reset();
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log('ERROR',error.message)
+        setError(error.message);
+        setSuccess(false);
+      });
   };
   return (
     <div className="py-10  grid grid-cols-1 md:grid-cols-2 place-items-center bg-gray-100 my-10 rounded-lg">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         {/* Title */}
         <h1 className="text-4xl font-bold text-center mb-6 text-teal-700">
-          Register Now! 
+          Register Now!
         </h1>
         {/* Registration Form */}
         <form onSubmit={handleToRegister}>
@@ -154,6 +183,12 @@ const Register = () => {
           className="md:w-[450px]"
         ></Lottie>
       </div>
+      {
+          error && <div className="text-red-500 text-center">{error}</div>
+          }
+          {
+              success && <div className="text-green-500 text-center">SignUp successful. Please check your email for verification.</div> // Display success message if any
+          } 
     </div>
   );
 };
