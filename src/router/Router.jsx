@@ -8,6 +8,8 @@ import Register from "../page/Register";
 import AllBooks from "../page/AllBooks";
 import PrivateRoute from "./PrivateRoute";
 import Error from "../page/Error";
+import BooksByCategory from "../components/BooksByCategory";
+import AddBooks from "../page/AddBooks";
 
 
 
@@ -32,6 +34,14 @@ import Error from "../page/Error";
         {
           path:'/allBooks',
           element:<PrivateRoute><AllBooks></AllBooks></PrivateRoute>
+        },
+        {
+          path:"/categoryBooks/:category",
+          element:<BooksByCategory></BooksByCategory>
+        },
+        {
+          path:'/addBook',
+          element:<PrivateRoute><AddBooks></AddBooks></PrivateRoute>
         }
       ]
 

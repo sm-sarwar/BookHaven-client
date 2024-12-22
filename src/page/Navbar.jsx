@@ -97,7 +97,7 @@ const Navbar = () => {
                 />
 
                 {/* Tooltip for Display Name */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-12 bg-gray-800 text-white text-sm rounded px-3 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-12 bg-gray-800 text-white text-sm rounded px-5 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
                   {user.displayName || "No Name"}
                 </div>
               </div>
