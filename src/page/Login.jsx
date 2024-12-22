@@ -1,9 +1,36 @@
 import Lottie from "lottie-react";
 import React from "react";
 import loginAnimation from '../assets/loginAniamtion.json'
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../Hooks/UseAuth";
 
 const Login = () => {
+  const {signInUser} = useAuth()
+  const location = useLocation()
+  const navigate = useNavigate()
+  console.log(location )
+  const from = location?.state || '/'
+
+
+  const handleToLogin = (e)=>{
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const user = {email,password}
+
+    signInUser(email, password)
+    .then(result => {
+        console.log(result.user)
+        navigate(from)
+        form.reset()
+    })
+    .catch(error => {
+        console.log(error)
+    });
+}
+
+  
   return (
     <div>
       <div className="hero bg-base-200 py-20 my-10 font-mona rounded-xl">
@@ -14,7 +41,7 @@ const Login = () => {
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
+            <form onSubmit={handleToLogin} className="card-body">
             <h1 className="text-4xl font-bold text-center text-teal-700">Login now!</h1>
               <div className="form-control">
                 <label className="label">
@@ -23,6 +50,7 @@ const Login = () => {
                 <input
                   type="email"
                   placeholder="email"
+                  name="email"
                   className="input input-bordered"
                   required
                 />
@@ -34,14 +62,10 @@ const Login = () => {
                 <input
                   type="password"
                   placeholder="password"
+                  name="password"
                   className="input input-bordered"
                   required
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
               <div className="form-control mt-6">
                 <button className="btn text-white bg-teal-700 hover:text-black">Login</button>

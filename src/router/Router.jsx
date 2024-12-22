@@ -5,6 +5,8 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../Home/Home";
 import Login from "../page/Login";
 import Register from "../page/Register";
+import AllBooks from "../page/AllBooks";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -25,6 +27,10 @@ import Register from "../page/Register";
         {
           path:'/register',
           element:<Register></Register>
+        },
+        {
+          path:'/allBooks',
+          element:<PrivateRoute><AllBooks></AllBooks></PrivateRoute>
         }
       ]
 
