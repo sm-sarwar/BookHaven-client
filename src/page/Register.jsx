@@ -6,6 +6,7 @@ import Lottie from "lottie-react";
 import registrationAnimation from "../assets/registration.json";
 import useAuth from "../Hooks/UseAuth";
 import Swal from "sweetalert2";
+import SocialLogin from "./SocialLogin";
 
 const Register = () => {
   const { createUser, updateUserProfile} = useAuth();
@@ -175,7 +176,9 @@ const Register = () => {
             </Link>
           </p>
         </div>
+        <SocialLogin></SocialLogin>
       </div>
+      
       <div>
         {/* Lottie  */}
         <Lottie

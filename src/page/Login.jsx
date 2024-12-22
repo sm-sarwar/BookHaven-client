@@ -3,6 +3,7 @@ import React from "react";
 import loginAnimation from '../assets/loginAniamtion.json'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/UseAuth";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
   const {signInUser} = useAuth()
@@ -72,6 +73,7 @@ const Login = () => {
               </div>
               <p className="text-sm">Don't have an account? <Link to="/register" className="text-teal-600 hover:underline">Register here</Link></p>
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
