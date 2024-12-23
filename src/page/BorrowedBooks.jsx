@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../Hooks/UseAuth";
+import { Helmet } from "react-helmet-async";
 
 const BorrowedBooks = () => {
   const { user } = useAuth();
@@ -13,6 +14,9 @@ const BorrowedBooks = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>BorrowedBooks - BookHaven</title>
+      </Helmet>
       <div className="bg-base-200 min-h-screen py-10">
         <h1 className="text-center text-2xl font-bold text-teal-700 mb-5">
           My Borrowed Books

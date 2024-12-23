@@ -4,6 +4,7 @@ import loginAnimation from '../assets/loginAniamtion.json'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/UseAuth";
 import SocialLogin from "./SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const {signInUser} = useAuth()
@@ -34,6 +35,9 @@ const Login = () => {
   
   return (
     <div>
+      <Helmet>
+        <title>Login - BookHaven</title>
+      </Helmet>
       <div className="hero bg-base-200 py-20 my-10 font-mona rounded-xl">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
