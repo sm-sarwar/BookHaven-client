@@ -128,6 +128,7 @@ const AddBooks = () => {
             value={formData.rating}
             min="1"
             max="5"
+            step="0.1"
             onChange={handleInputChange}
             className="w-full p-2 border rounded"
           />

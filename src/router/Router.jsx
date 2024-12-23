@@ -12,6 +12,7 @@ import BooksByCategory from "../components/BooksByCategory";
 import AddBooks from "../page/AddBooks";
 import BookDetails from "../Home/BookDetails";
 import BorrowedBooks from "../page/BorrowedBooks";
+import UpdateBook from "../components/UpdateBook";
 
 
 
@@ -56,6 +57,11 @@ import BorrowedBooks from "../page/BorrowedBooks";
         {
           path:"/borrowedBook",
           element:<PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>
+        },
+        {
+          path:'/updateBook/:id',
+          element: <PrivateRoute><UpdateBook></UpdateBook></PrivateRoute>,
+          loader:({params})=> fetch(`http://localhost:5000/book/${params.id}`)
         }
       ]
 

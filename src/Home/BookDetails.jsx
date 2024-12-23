@@ -147,6 +147,7 @@ const BookDetails = () => {
                 id="returnDate"
                 className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-600"
                 required
+                min={new Date().toISOString().split("T")[0]}
               />
             </div>
             <div className="modal-action">

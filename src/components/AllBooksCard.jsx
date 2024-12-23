@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const AllBooksCard = ({ book, onUpdate }) => {
-  const { name, image, author, category, rating, content } = book;
+const AllBooksCard = ({ book }) => {
+  const { name, image, author, category, rating, content ,_id } = book;
+  const navigate = useNavigate()
 
   return (
     <div className="p-4 shadow-lg rounded-lg border border-gray-300 bg-white">
@@ -32,7 +34,7 @@ const AllBooksCard = ({ book, onUpdate }) => {
       {/* Update Button */}
       <button
         className="w-full font-semibold bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-700 transition duration-300"
-        onClick={() => onUpdate(book)}
+        onClick={() => navigate(`/updateBook/${_id}`)}
       >
         Update
       </button>
