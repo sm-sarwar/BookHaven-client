@@ -11,6 +11,7 @@ import Error from "../page/Error";
 import BooksByCategory from "../components/BooksByCategory";
 import AddBooks from "../page/AddBooks";
 import BookDetails from "../Home/BookDetails";
+import BorrowedBooks from "../page/BorrowedBooks";
 
 
 
@@ -47,8 +48,12 @@ import BookDetails from "../Home/BookDetails";
         },
         {
           path: "/books/:id",
-          element : <BookDetails></BookDetails>,
+          element :<PrivateRoute><BookDetails></BookDetails></PrivateRoute>,
           loader:({params})=> fetch(`http://localhost:5000/books/${params.id}`)
+        },
+        {
+          path:"/borrowedBook",
+          element:<PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>
         }
       ]
 
