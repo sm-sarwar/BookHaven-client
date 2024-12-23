@@ -35,7 +35,9 @@ import BorrowedBooks from "../page/BorrowedBooks";
         },
         {
           path:'/allBooks',
-          element:<PrivateRoute><AllBooks></AllBooks></PrivateRoute>
+          element:<PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
+          loader:()=> fetch('http://localhost:5000/books')
+
         },
         {
           path:"/categoryBooks/:category",
