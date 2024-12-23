@@ -114,7 +114,7 @@ const AddBooks = () => {
           <textarea
             name="description"
             required
-            value={formData.description}
+            value={formData.content}
             onChange={handleInputChange}
             className="w-full p-2 border rounded"
           />
