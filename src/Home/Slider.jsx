@@ -1,6 +1,12 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import "swiper/css";
+
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
 import slider1 from '../assets/slider_1.jpg'
 import slider2 from '../assets/slider_2.jpg' 
 import slider3 from '../assets/slider_3.jpg' 
@@ -11,11 +17,19 @@ const Slider = () => {
     <div className="w-full max-w-screen-xl mx-auto my-10">
       <Swiper
         spaceBetween={30}
-        slidesPerView={1}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
         className="rounded-lg shadow-lg "
       >
-        <SwiperSlide className="px-2">
+        <SwiperSlide className="px-2 md:px-0">
           <div className="relative">
             <img
               src={slider1}
@@ -29,7 +43,7 @@ const Slider = () => {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="px-2">
+        <SwiperSlide className="px-2 md:px-0">
           <div className="relative">
             <img
               src={slider2}
@@ -43,7 +57,7 @@ const Slider = () => {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="px-2">
+        <SwiperSlide className="px-2 md:px-0">
           <div className="relative">
             <img
               src={slider3}
@@ -57,7 +71,7 @@ const Slider = () => {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="px-2">
+        <SwiperSlide className="px-2 md:px-0">
           <div className="relative">
             <img
               src={slider4}
@@ -77,4 +91,5 @@ const Slider = () => {
 };
 
 export default Slider;
+
 

@@ -1,9 +1,10 @@
 import React from 'react';
-import Slider from './slider';
+
 import TestimonialSlider from './Testimonial';
 import Statistics from './Statistics';
 import BookCategory from './BookCategory';
 import { Helmet } from 'react-helmet-async';
+import Slider from './Slider';
 
 const Home = () => {
     return (

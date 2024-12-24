@@ -1,6 +1,12 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import "swiper/css";
+
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
 import stu_slider1 from '../assets/friendly-handsome-man-pointing-fingers-left-advertisement.jpg'
 import stu_slider2 from '../assets/silly-cute-young-brunette-posing.jpg'
 import stu_slider3 from '../assets/young-bearded-man-with-striped-shirt.jpg'
@@ -12,8 +18,16 @@ const TestimonialSlider = () => {
         <h2 className="text-3xl font-bold mb-6 text-center text-teal-700 italic">What Student Says?</h2>
       <Swiper
         spaceBetween={30}
-        slidesPerView={1}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+                centeredSlides={true}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
+                pagination={{
+                  clickable: true,
+                }}
+                navigation={false}
+                modules={[Autoplay, Pagination, Navigation]}
         className="rounded-lg  max-w-screen-md"
       >
         <SwiperSlide className="">

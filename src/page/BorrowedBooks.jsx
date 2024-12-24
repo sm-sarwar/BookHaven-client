@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../Hooks/UseAuth";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const BorrowedBooks = () => {
   const { user } = useAuth();
@@ -11,6 +12,29 @@ const BorrowedBooks = () => {
       .then((res) => res.json())
       .then((data) => setBorrowedBooks(data));
   }, [user.email]);
+
+  // return book 
+  const handleReturnBook = (borrowEntryId, bookId) =>{
+    
+
+    fetch(`http://localhost:5000/book/${borrowEntryId}?bookId=${bookId}`,{
+      method: "DELETE",
+      
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+       if(data.deletedCount > 0){
+        Swal.fire({
+          title: "Good job!",
+          text: "Book Return successfully",
+          icon: "success"
+        });
+        const remaining = borrowedBooks.filter(book => book._id !== borrowEntryId)
+        setBorrowedBooks(remaining);
+       }
+    })
+  }
 
   return (
     <div>
@@ -47,7 +71,7 @@ const BorrowedBooks = () => {
                 {new Date(book.returnDate).toLocaleDateString()}
               </p>
               <button
-                onClick={() => handleReturnBook(book._id)}
+                onClick={() => handleReturnBook(book._id, book.bookId)}
                 className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-300"
               >
                 Return Book

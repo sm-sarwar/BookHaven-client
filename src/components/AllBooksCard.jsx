@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const AllBooksCard = ({ book }) => {
-  const { name, image, author, category, rating, content ,_id } = book;
+  const { name, image, author, category, rating, content ,_id , quantity} = book;
   const navigate = useNavigate()
 
   return (
@@ -23,6 +23,9 @@ const AllBooksCard = ({ book }) => {
       </p>
       <p className="text-gray-600 mb-1">
         <span className="font-semibold">Category:</span> {category}
+      </p>
+      <p className="text-gray-600 mb-1">
+        <span className="font-semibold">Quantity:</span> {quantity}
       </p>
       <p className="text-gray-600 mb-1">
         <span className="font-semibold">Rating:</span> {rating} / 5

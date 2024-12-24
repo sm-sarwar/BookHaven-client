@@ -92,20 +92,18 @@ const BookDetails = () => {
 
                 {/* Borrow Button */}
                 <button
-                  className="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 transition duration-300"
+                  className={`w-full py-2 px-4 rounded-md transition duration-300 ${
+                    quantity > 0
+                      ? "bg-teal-600 text-white hover:bg-teal-700"
+                      : "bg-gray-400 text-gray-600 cursor-not-allowed"
+                  }`}
                   onClick={() =>
+                    quantity > 0 &&
                     document.getElementById("borrow_modal").showModal()
                   }
+                  disabled={quantity === 0}
                 >
                   Borrow
-                </button>
-
-                {/* View Books Button */}
-                <button
-                  onClick={() => navigate(-1)}
-                  className="mt-5 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition duration-300"
-                >
-                  View Books
                 </button>
               </div>
             </div>
