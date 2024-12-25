@@ -1,20 +1,25 @@
-import React from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
-import useAuth from '../Hooks/UseAuth';
+import React from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import useAuth from "../Hooks/UseAuth";
+import { BounceLoader } from "react-spinners";
 
-const PrivateRoute = ({children}) => {
-    const {user, loading} = useAuth()
-    const location = useLocation()
-    console.log(location)
+const PrivateRoute = ({ children }) => {
+  const { user, loading } = useAuth();
+  const location = useLocation();
+  console.log(location);
 
-    if(loading){
-        return <div className='my-20 text-center'><span className="loading loading-spinner loading-lg"></span></div>
-    }
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen ">
+        <BounceLoader color="#36d7b7" />
+      </div>
+    );
+  }
 
-    if(user){
-        return children
-    }
-    return <Navigate to="/login" state={location?.pathname}></Navigate>
+  if (user) {
+    return children;
+  }
+  return <Navigate to="/login" state={location?.pathname}></Navigate>;
 };
 
 export default PrivateRoute;

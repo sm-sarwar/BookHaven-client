@@ -38,6 +38,13 @@ const UpdateBook = () => {
           });
           navigate("/allBooks");
         }
+        else{
+          Swal.fire({
+            title: "Failed to update book!",
+            text: "You haven't changed anything.",
+            icon: "error",
+          });
+        }
       });
   };
 

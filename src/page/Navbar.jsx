@@ -1,6 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.webp";
 import useAuth from "../Hooks/UseAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -16,6 +17,11 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     signOutUser();
+    Swal.fire({
+      icon: "error",
+      text: "LogOut!",
+     
+    });
     navigate("/");
   };
 

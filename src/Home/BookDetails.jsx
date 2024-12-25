@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/UseAuth";
 import Swal from "sweetalert2";
@@ -7,11 +7,33 @@ import { Helmet } from "react-helmet-async";
 const BookDetails = () => {
   const { name, image, author, category, quantity, content, _id } =
     useLoaderData();
+  const [alreadyBorrowed, setAlreadyBorrowed] = useState(false);
   const navigate = useNavigate();
   const { user } = useAuth();
 
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/borrowBooks/check?bookId=${_id}&userEmail=${user.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setAlreadyBorrowed(data.alreadyBorrowed);
+      });
+  }, [_id, user.email]);
+
   const handleToSubmitBorrowBook = (e) => {
     e.preventDefault();
+
+    if (alreadyBorrowed) {
+      Swal.fire({
+        title: "Warning!",
+        text: "You have already borrowed this book! Please return it before borrowing again.",
+        icon: "warning",
+      });
+      return;
+    }
+
     const form = e.target;
     const name = form.name.value;
     const userEmail = form.email.value;
@@ -25,12 +47,20 @@ const BookDetails = () => {
       returnDate,
       borrowedDate,
     };
+
     fetch("http://localhost:5000/borrowBooks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(borrowBooks),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((error) => {
+            throw new Error(error.error);
+          });
+        }
+        return res.json();
+      })
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
@@ -39,8 +69,16 @@ const BookDetails = () => {
             text: "Borrow book successfully!",
             icon: "success",
           });
+          navigate("/borrowedBook");
         }
-        navigate("/borrowedBook");
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "top-end",
+          title: "Error!",
+          text: error.message,
+          icon: "error",
+        });
       });
   };
 
@@ -93,17 +131,18 @@ const BookDetails = () => {
                 {/* Borrow Button */}
                 <button
                   className={`w-full py-2 px-4 rounded-md transition duration-300 ${
-                    quantity > 0
+                    quantity > 0 && !alreadyBorrowed
                       ? "bg-teal-600 text-white hover:bg-teal-700"
                       : "bg-gray-400 text-gray-600 cursor-not-allowed"
                   }`}
                   onClick={() =>
                     quantity > 0 &&
+                    !alreadyBorrowed &&
                     document.getElementById("borrow_modal").showModal()
                   }
-                  disabled={quantity === 0}
+                  disabled={quantity === 0 || alreadyBorrowed}
                 >
-                  Borrow
+                  {alreadyBorrowed ? "Already Borrowed" : "Borrow"}
                 </button>
               </div>
             </div>

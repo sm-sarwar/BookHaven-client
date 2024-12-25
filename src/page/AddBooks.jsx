@@ -26,11 +26,17 @@ const AddBooks = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const dataToSubmit = {
+      ...formData,
+      quantity: Number(formData.quantity),
+      rating: parseFloat(formData.rating),
+    };
     // Post to the database
     fetch("http://localhost:5000/addBook", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(dataToSubmit),
     })
       .then((res) => res.json())
       .then((data) => {
