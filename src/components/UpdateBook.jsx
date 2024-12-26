@@ -22,7 +22,7 @@ const UpdateBook = () => {
     };
     console.log(updatedBook);
 
-    fetch(`http://localhost:5000/book/${_id}`, {
+    fetch(`https://book-haven-server-eight.vercel.app/book/${_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedBook),

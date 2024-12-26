@@ -13,7 +13,7 @@ const BookDetails = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/borrowBooks/check?bookId=${_id}&userEmail=${user.email}`
+      `https://book-haven-server-eight.vercel.app/borrowBooks/check?bookId=${_id}&userEmail=${user.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -48,7 +48,7 @@ const BookDetails = () => {
       borrowedDate,
     };
 
-    fetch("http://localhost:5000/borrowBooks", {
+    fetch("https://book-haven-server-eight.vercel.app/borrowBooks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(borrowBooks),

@@ -33,7 +33,7 @@ const AddBooks = () => {
       rating: parseFloat(formData.rating),
     };
     // Post to the database
-    fetch("http://localhost:5000/addBook", {
+    fetch("https://book-haven-server-eight.vercel.app/addBook", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataToSubmit),

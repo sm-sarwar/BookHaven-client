@@ -8,7 +8,7 @@ const BorrowedBooks = () => {
   const [borrowedBooks, setBorrowedBooks] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/borrowBooks?email=${user.email}`,{
+    fetch(`https://book-haven-server-eight.vercel.app/borrowBooks?email=${user.email}`,{
       method: "GET",
       credentials: "include",
     })
@@ -20,7 +20,7 @@ const BorrowedBooks = () => {
   const handleReturnBook = (borrowEntryId, bookId) =>{
     
 
-    fetch(`http://localhost:5000/book/${borrowEntryId}?bookId=${bookId}`,{
+    fetch(`https://book-haven-server-eight.vercel.app/book/${borrowEntryId}?bookId=${bookId}`,{
       method: "DELETE",
       
     })

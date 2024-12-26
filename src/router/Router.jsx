@@ -37,13 +37,13 @@ import UpdateBook from "../components/UpdateBook";
         {
           path:'/allBooks',
           element:<PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
-          loader:()=> fetch('http://localhost:5000/books')
+          loader:()=> fetch('https://book-haven-server-eight.vercel.app/books')
 
         },
         {
           path:"/categoryBooks/:category",
           element:<BooksByCategory></BooksByCategory>,
-          loader:()=> fetch('http://localhost:5000/books')
+          loader:()=> fetch('https://book-haven-server-eight.vercel.app/books')
         },
         {
           path:'/addBook',
@@ -52,7 +52,7 @@ import UpdateBook from "../components/UpdateBook";
         {
           path: "/books/:id",
           element :<PrivateRoute><BookDetails></BookDetails></PrivateRoute>,
-          loader:({params})=> fetch(`http://localhost:5000/books/${params.id}`)
+          loader:({params})=> fetch(`https://book-haven-server-eight.vercel.app/books/${params.id}`)
         },
         {
           path:"/borrowedBook",
@@ -61,7 +61,7 @@ import UpdateBook from "../components/UpdateBook";
         {
           path:'/updateBook/:id',
           element: <PrivateRoute><UpdateBook></UpdateBook></PrivateRoute>,
-          loader:({params})=> fetch(`http://localhost:5000/book/${params.id}`)
+          loader:({params})=> fetch(`https://book-haven-server-eight.vercel.app/book/${params.id}`)
         }
       ]
 

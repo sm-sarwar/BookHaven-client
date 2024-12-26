@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         setUser(currentUser);
         const { data } = await axios.post(
-          "http://localhost:5000/jwt",
+          "https://book-haven-server-eight.vercel.app/jwt",
           {
             email: currentUser?.email,
           },
@@ -65,7 +65,7 @@ const AuthProvider = ({ children }) => {
       } else{
         setUser(currentUser);
         const { data } = await axios.get(
-            "http://localhost:5000/logout",
+            "https://book-haven-server-eight.vercel.app/logout",
             {
               withCredentials: true,
             }
