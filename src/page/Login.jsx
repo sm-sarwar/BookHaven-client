@@ -6,6 +6,7 @@ import useAuth from "../Hooks/UseAuth";
 import SocialLogin from "./SocialLogin";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import 'animate.css';
 
 const Login = () => {
   const { signInUser } = useAuth();
@@ -43,7 +44,7 @@ const Login = () => {
       </Helmet>
       <div className="hero bg-base-200 py-20 my-10 font-mona rounded-xl">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left animate__animated animate__slow	1s animate__fadeInRight">
             <p className="">
               <Lottie
                 className="md:w-[450px]"
@@ -51,7 +52,7 @@ const Login = () => {
               ></Lottie>
             </p>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl animate__animated animate__slow	1s animate__fadeInLeft">
             <form onSubmit={handleToLogin} className="card-body">
               <h1 className="text-4xl font-bold text-center text-teal-700">
                 Login now!

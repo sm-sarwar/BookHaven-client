@@ -55,7 +55,7 @@ const BooksByCategory = () => {
                   />
                 </div>
                 <button
-                  className="bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-cyan-700"
+                  className=" btnn text-teal-600 text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-teal-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-lg group py-2 px-6  hover:bg-teal-600 transition duration-300"
                   onClick={() => navigate(`/books/${book._id}`)}
                 >
                   Details

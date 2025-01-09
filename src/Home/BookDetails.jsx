@@ -132,7 +132,7 @@ const BookDetails = () => {
                 <button
                   className={`w-full py-2 px-4 rounded-md transition duration-300 ${
                     quantity > 0 && !alreadyBorrowed
-                      ? "bg-teal-600 text-white hover:bg-teal-700"
+                      ? "w-full text-teal-600 flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-teal-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-xl group py-2 px-4  hover:bg-teal-600 transition duration-300"
                       : "bg-gray-400 text-gray-600 cursor-not-allowed"
                   }`}
                   onClick={() =>
@@ -209,13 +209,13 @@ const BookDetails = () => {
               <div className="modal-action">
                 <button
                   type="submit"
-                  className="bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 transition duration-300"
+                  className="text-teal-600 text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-teal-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-lg group py-2 px-6  hover:bg-teal-600 transition duration-300"
                 >
                   Submit
                 </button>
                 <button
                   type="button"
-                  className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-300"
+                  className="text-red-600 text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-red-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-lg group py-2 px-6  hover:bg-red-600 transition duration-300"
                   onClick={() =>
                     document.getElementById("borrow_modal").close()
                   }

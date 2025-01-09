@@ -5,6 +5,7 @@ import Statistics from './Statistics';
 import BookCategory from './BookCategory';
 import { Helmet } from 'react-helmet-async';
 import Slider from './Slider';
+import UpcomingEvents from './UpcomingEvents';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <BookCategory></BookCategory>
             <TestimonialSlider></TestimonialSlider>
             <Statistics></Statistics>
+            <UpcomingEvents></UpcomingEvents>
         </div>
     );
 };

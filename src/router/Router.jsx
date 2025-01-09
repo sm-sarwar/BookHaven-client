@@ -13,6 +13,7 @@ import AddBooks from "../page/AddBooks";
 import BookDetails from "../Home/BookDetails";
 import BorrowedBooks from "../page/BorrowedBooks";
 import UpdateBook from "../components/UpdateBook";
+import Contact from "../page/Contact";
 
 
 
@@ -57,6 +58,10 @@ import UpdateBook from "../components/UpdateBook";
         {
           path:"/borrowedBook",
           element:<PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>
+        },
+        {
+          path:"/contact",
+          element:<Contact></Contact>
         },
         {
           path:'/updateBook/:id',

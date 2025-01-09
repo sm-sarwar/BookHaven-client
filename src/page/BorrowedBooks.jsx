@@ -48,43 +48,50 @@ const BorrowedBooks = () => {
         <h1 className="text-center text-2xl font-bold text-teal-700 mb-5">
           My Borrowed Books
         </h1>
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {borrowedBooks.map((book) => (
-            <div
-              key={book._id}
-              className="bg-white shadow-md rounded-lg p-5 border border-gray-300"
-            >
-              <img
-                src={book.image}
-                alt={book.name}
-                className="w-full  object-cover rounded-md mb-4"
-              />
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                {book.name}
-              </h2>
-              <p className="text-gray-600">
-                <span className="font-semibold">Category:</span> {book.category}
-              </p>
-              <p className="text-gray-600">
-                <span className="font-semibold">Borrowed Date:</span>{" "}
-                {new Date(book.borrowedDate).toLocaleDateString()}
-              </p>
-              <p className="text-gray-600">
-                <span className="font-semibold">Return Date:</span>{" "}
-                {new Date(book.returnDate).toLocaleDateString()}
-              </p>
-              <button
-                onClick={() => handleReturnBook(book._id, book.bookId)}
-                className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-300"
+        {borrowedBooks.length === 0 ? (
+          <p className="text-center text-lg text-gray-600 mt-10">
+            You have not borrowed any books yet.
+          </p>
+        ) : (
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {borrowedBooks.map((book) => (
+              <div
+                key={book._id}
+                className="bg-white shadow-md rounded-lg p-5 border border-gray-300 group"
               >
-                Return Book
-              </button>
-            </div>
-          ))}
-        </div>
+                <img
+                  src={book.image}
+                  alt={book.name}
+                  className="w-full object-cover rounded-md mb-4 transition-transform duration-500 group-hover:scale-110"
+                />
+                <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                  {book.name}
+                </h2>
+                <p className="text-gray-600">
+                  <span className="font-semibold">Category:</span> {book.category}
+                </p>
+                <p className="text-gray-600">
+                  <span className="font-semibold">Borrowed Date:</span>{" "}
+                  {new Date(book.borrowedDate).toLocaleDateString()}
+                </p>
+                <p className="text-gray-600">
+                  <span className="font-semibold">Return Date:</span>{" "}
+                  {new Date(book.returnDate).toLocaleDateString()}
+                </p>
+                <button
+                  onClick={() => handleReturnBook(book._id, book.bookId)}
+                  className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600  transition duration-300 hover:scale-105 shadow-xl"
+                >
+                  Return Book
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
+  
 };
 
 export default BorrowedBooks;

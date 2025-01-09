@@ -50,12 +50,20 @@ const Navbar = () => {
           Borrowed Books
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          className="hover:text-teal-500 font-semibold"
+          to="/contact"
+        >
+          Contact 
+        </NavLink>
+      </li>
     </>
   );
 
   return (
-    <div>
-      <div className="navbar max-w-screen-xl mx-auto">
+    <div className="">
+      <div className="navbar max-w-screen-xl mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

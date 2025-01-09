@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Lottie from "lottie-react";
+import 'animate.css';
 
 import registrationAnimation from "../assets/registration.json";
 import useAuth from "../Hooks/UseAuth";
@@ -69,7 +70,7 @@ const Register = () => {
         <title>Register - BookHaven</title>
       </Helmet>
       <div className="py-10  grid grid-cols-1 md:grid-cols-2 place-items-center bg-gray-100 my-10 rounded-lg">
-        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md animate__animated animate__slow	1s animate__fadeInLeft">
           {/* Title */}
           <h1 className="text-4xl font-bold text-center mb-6 text-teal-700">
             Register Now!
@@ -184,7 +185,7 @@ const Register = () => {
           <SocialLogin></SocialLogin>
         </div>
 
-        <div>
+        <div className="animate__animated animate__slow	1s animate__fadeInRight">
           {/* Lottie  */}
           <Lottie
             animationData={registrationAnimation}
