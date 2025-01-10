@@ -100,18 +100,18 @@ const BookDetails = () => {
         </p>
         <div className="flex justify-center items-center py-10 p-6">
           <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg overflow-hidden">
-            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col md:flex-row btnn group">
               {/* Book Image */}
               <div className="md:w-1/3 p-5">
                 <img
                   src={image}
                   alt={name}
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-cover rounded-lg transition transform duration-500 group-hover:scale-105"
                 />
               </div>
 
               {/* Book Details */}
-              <div className="p-6 md:w-2/3">
+              <div className="p-6 md:w-2/3 flex flex-col justify-between">
                 <h2 className="text-2xl font-bold text-gray-800 mb-4">
                   {name}
                 </h2>
@@ -133,7 +133,7 @@ const BookDetails = () => {
                   className={`w-full py-2 px-4 rounded-md transition duration-300 ${
                     quantity > 0 && !alreadyBorrowed
                       ? "w-full text-teal-600 flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-teal-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-xl group py-2 px-4  hover:bg-teal-600 transition duration-300"
-                      : "bg-gray-400 text-gray-600 cursor-not-allowed"
+                      : "bg-gray-400 text-gray-600 "
                   }`}
                   onClick={() =>
                     quantity > 0 &&
@@ -151,7 +151,7 @@ const BookDetails = () => {
 
         {/* Modal for Borrow Form */}
         <dialog id="borrow_modal" className="modal">
-          <div className="modal-box">
+          <div className="modal-box ">
             <h3 className="font-bold text-lg mb-4 text-teal-600">
               Borrow Book
             </h3>
@@ -209,13 +209,13 @@ const BookDetails = () => {
               <div className="modal-action">
                 <button
                   type="submit"
-                  className="text-teal-600 text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-teal-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-lg group py-2 px-6  hover:bg-teal-600 transition duration-300"
+                  className=" btnn text-teal-600 text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-teal-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-lg group py-2 px-6  hover:bg-teal-600 transition duration-300"
                 >
                   Submit
                 </button>
                 <button
                   type="button"
-                  className="text-red-600 text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-red-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-lg group py-2 px-6  hover:bg-red-600 transition duration-300"
+                  className=" btnn text-red-600 text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-red-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-lg group py-2 px-6  hover:bg-red-600 transition duration-300"
                   onClick={() =>
                     document.getElementById("borrow_modal").close()
                   }

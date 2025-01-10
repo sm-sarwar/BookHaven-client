@@ -53,7 +53,7 @@ const UpdateBook = () => {
         <Helmet>
             <title>UpdateBook - BookHaven</title>
         </Helmet>
-      <div className="max-w-2xl mx-auto p-6  shadow rounded my-10 bg-base-200">
+      <div className="max-w-2xl mx-auto p-6  shadow rounded my-10 bg-base-200 ">
         <h1 className="text-2xl font-bold mb-6 text-center text-teal-600">
           Update Book
         </h1>
@@ -131,7 +131,7 @@ const UpdateBook = () => {
           </div>
           <button
             type="submit"
-            className="bg-orange-600 w-full text-white px-4 py-2 rounded hover:bg-orange-700"
+            className="btnn w-full text-orange-600 text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-orange-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-lg group py-2 px-6  hover:bg-orange-600 transition duration-300"
           >
             Update Now
           </button>

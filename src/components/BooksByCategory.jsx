@@ -24,11 +24,11 @@ const BooksByCategory = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-2 md:px-0">
           {booksInCategory.map((book) => (
             <div key={book._id}>
-              <div className="p-4 shadow-lg rounded-lg border border-gray-300">
+              <div className="p-4 shadow-lg rounded-lg border border-gray-300 btnn group flex flex-col justify-between">
                 <img
                   src={book.image}
                   alt={book.name}
-                  className="rounded-md mb-4 md:w-96 md:h-[450px]"
+                  className="rounded-md mb-4 md:w-96 md:h-[450px] transition transform duration-500 group-hover:scale-105"
                 />
                 <h3 className="text-lg font-semibold mb-2">{book.name}</h3>
                 <p className="text-gray-600 mb-1">
@@ -55,7 +55,7 @@ const BooksByCategory = () => {
                   />
                 </div>
                 <button
-                  className=" btnn text-teal-600 text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-teal-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-lg group py-2 px-6  hover:bg-teal-600 transition duration-300"
+                  className=" btnn hover:translate-y-2 text-teal-600 text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-teal-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10  overflow-hidden border-2 rounded-lg group py-2 px-6  hover:bg-teal-600 transition duration-300"
                   onClick={() => navigate(`/books/${book._id}`)}
                 >
                   Details
