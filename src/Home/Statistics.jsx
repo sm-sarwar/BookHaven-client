@@ -27,7 +27,7 @@ const Statistics = () => {
                     {stats.map((stat, index) => (
                         <div
                             key={index}
-                            className="flex flex-col items-center justify-center bg-white p-6 rounded-lg shadow-lg transition duration-300 hover:scale-105 hover:shadow-xl ">
+                            className="flex btnn flex-col items-center justify-center bg-white p-6 rounded-lg shadow-lg transition duration-300 hover:scale-105 hover:shadow-xl ">
                             <p className="text-4xl font-bold text-teal-500">
                                 <CountUp 
                                     end={stat.value} 
