@@ -38,12 +38,11 @@ import Contact from "../page/Contact";
         {
           path:'/allBooks',
           element:<PrivateRoute><AllBooks></AllBooks></PrivateRoute>
-
         },
         {
           path:"/categoryBooks/:category",
           element:<BooksByCategory></BooksByCategory>,
-          loader:()=> fetch('https://book-haven-server-eight.vercel.app/books')
+          loader:()=> fetch(`https://book-haven-server-eight.vercel.app/books/`)
         },
         {
           path:'/addBook',

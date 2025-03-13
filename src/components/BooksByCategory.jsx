@@ -11,6 +11,8 @@ const BooksByCategory = () => {
     (book) => book.category === category
   );
 
+  console.log(loadedBooks)
+
   return (
     <div>
       <Helmet>

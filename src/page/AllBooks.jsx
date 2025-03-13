@@ -19,7 +19,7 @@ const AllBooks = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       const { data } = await axios.get(
-        `https://book-haven-server-eight.vercel.app/books?search=${search}&filter=${filter}`
+        `https://book-haven-server-eight.vercel.app/all-books?search=${search}&filter=${filter}`
       );
       setAllBooks(data);
       // console.log(data);
