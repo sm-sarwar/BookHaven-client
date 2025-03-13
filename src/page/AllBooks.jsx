@@ -1,14 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import AllBooksCard from "../components/AllBooksCard";
 import { FaEdit } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 const AllBooks = () => {
-  const allBooks = useLoaderData();
   const [view, setView] = useState("Card"); // State to toggle between views
   const [showAvailable, setShowAvailable] = useState(false); // State to filter books
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("")
   const navigate = useNavigate();
+
+  
+  // const allBooks = useLoaderData();
+  const [allBooks, setAllBooks] = useState([]);
+
+  useEffect(() => {
+    const fetchBooks = async () => {
+      const { data } = await axios.get(
+        `https://book-haven-server-eight.vercel.app/books?search=${search}&filter=${filter}`
+      );
+      setAllBooks(data);
+      // console.log(data);
+    };
+
+    fetchBooks();
+  }, [search, filter]);
 
   // Filtered books based on quantity
   const filteredBooks = showAvailable
@@ -17,16 +35,16 @@ const AllBooks = () => {
 
   return (
     <div>
-        <Helmet>
-            <title>AllBooks - BookHaven </title>
-        </Helmet>
+      <Helmet>
+        <title>AllBooks - BookHaven </title>
+      </Helmet>
       <div className="bg-base-200 p-10 my-10 rounded-lg">
         <h1 className="text-2xl font-bold text-teal-600 text-center my-5">
           All Books
         </h1>
 
         {/* Dropdown for selecting view */}
-        <div className="flex justify-between items-center mb-5 px-5">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-10">
           <select
             value={view}
             onChange={(e) => setView(e.target.value)}
@@ -36,6 +54,55 @@ const AllBooks = () => {
             <option value="Table">Table View</option>
           </select>
 
+          {/* search form  */}
+          <div>
+            <form className="flex-1">
+             
+
+              <div className="flex items-center">
+                <label className="input flex items-center gap-2">
+                  <svg
+                    className="h-[1em] opacity-50"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                      strokeWidth="2.5"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <path d="m21 21-4.3-4.3"></path>
+                    </g>
+                  </svg>
+                  <input type="search" 
+                  onChange={(e)=> setSearch(e.target.value)}
+                  name="search"
+                  placeholder="Search by Book Name"
+                  aria-label="Search by Book Name"
+                   />
+                </label>
+              </div>
+            </form>
+          </div>
+
+          {/* filter by category  */}
+          <div>
+            <select
+              name="category"
+              id="category"
+              onChange={(e) => setFilter(e.target.value)}
+              className="border p-3 rounded-lg"
+            >
+              <option value="">Filter By Category</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Non-Fiction">Non-Fiction</option>
+              <option value="Science">Science</option>
+              <option value="History">History</option>
+            </select>
+          </div>
           {/* Filter Button */}
           <button
             onClick={() => setShowAvailable(!showAvailable)}

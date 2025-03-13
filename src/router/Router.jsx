@@ -37,8 +37,7 @@ import Contact from "../page/Contact";
         },
         {
           path:'/allBooks',
-          element:<PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
-          loader:()=> fetch('https://book-haven-server-eight.vercel.app/books')
+          element:<PrivateRoute><AllBooks></AllBooks></PrivateRoute>
 
         },
         {

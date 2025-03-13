@@ -6,7 +6,7 @@ const AllBooksCard = ({ book }) => {
   const navigate = useNavigate()
 
   return (
-    <div className="p-4 shadow-lg rounded-lg border border-gray-300 bg-white btnn group flex flex-col justify-between">
+    <div className="p-4 shadow-lg rounded-lg border overflow-hidden border-gray-300 bg-white btnn group flex flex-col justify-between">
       {/* Book Cover */}
       <div className="flex justify-center mb-4">
         <img
